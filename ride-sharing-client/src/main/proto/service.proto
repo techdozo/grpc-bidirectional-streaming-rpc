@@ -1,0 +1,27 @@
+syntax = "proto3";
+package ride_sharing.trip;
+
+option java_package = "dev.techdozo.ride_sharing.trip";
+
+message TripDataRequest {
+  RideType ride_type = 1;
+  double latitude = 2;
+  double longitude = 3;
+}
+
+message RideType {
+  string driver_id = 1;
+  string ride_id = 2;
+}
+
+message TripSummaryResponse {
+  double distance = 1;
+  int32 time = 2;
+  double charge = 3;
+  int32 status = 4;
+
+}
+
+service TripService {
+  rpc SendTripData(stream TripDataRequest) returns (stream TripSummaryResponse);
+}

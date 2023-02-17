@@ -1,0 +1,4 @@
+group = 'dev.techdozo.grpc'
+repositories {
+    mavenCentral()
+}
